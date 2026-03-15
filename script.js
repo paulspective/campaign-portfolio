@@ -2,22 +2,50 @@
   const navbar = document.querySelector('nav');
   const indicator = navbar.querySelector('.nav-indicator');
   const links = Array.from(navbar.querySelectorAll('a[href^="#"]'));
+  const menuToggle = document.querySelector('.menu-toggle');
   const sections = links
     .map(link => document.querySelector(link.getAttribute('href')))
     .filter(Boolean);
 
   const header = document.querySelector('header');
-  function handleScroll() {
-    if (window.scrollY > header.offsetHeight) {
+
+  function toggleMobileMenu() {
+    const isOpen = navbar.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    const current = links.find(a => a.classList.contains('active'));
+    if (current) moveIndicator(current);
+  }
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      toggleMobileMenu();
+    });
+  }
+
+  let lastScrollY = window.scrollY;
+  let isTicking = false;
+
+  function updateScrollState() {
+    if (lastScrollY > header.offsetHeight) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
+    isTicking = false;
   }
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  function onScroll() {
+    lastScrollY = window.scrollY;
+    if (!isTicking) {
+      isTicking = true;
+      requestAnimationFrame(updateScrollState);
+    }
+  }
 
-  handleScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  updateScrollState();
 
   function moveIndicator(targetLink) {
     if (!targetLink) {
@@ -47,7 +75,7 @@
         }
       });
     },
-    { root: null, threshold: 0.5 } // 50% visible
+    { root: null, threshold: 0.25 }
   );
 
   sections.forEach(section => observer.observe(section));
@@ -62,6 +90,13 @@
     }, 150);
   });
 
+  // Close mobile menu on outside click
+  document.addEventListener('click', event => {
+    if (!navbar.classList.contains('open')) return;
+    if (navbar.contains(event.target)) return;
+    toggleMobileMenu();
+  });
+
   // Smooth scroll for nav links
   links.forEach(link => {
     link.addEventListener('click', event => {
@@ -69,6 +104,11 @@
       const target = document.querySelector(link.getAttribute('href'));
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // close mobile menu after selecting an item
+      if (navbar.classList.contains('open')) {
+        toggleMobileMenu();
       }
     });
   });
