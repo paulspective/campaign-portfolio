@@ -1,0 +1,179 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background: #ffffff;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  position: relative;
+  text-align: center;
+  padding: 5rem 2rem 4rem;
+  color: #333;
+  background: url('images/header-bg.jpg') center/cover no-repeat;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.65);
+  z-index: 0;
+}
+
+header>* {
+  position: relative;
+  z-index: 1;
+}
+
+header h1 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+nav.scrolled {
+  background: #000;
+  border-color: #222;
+}
+
+nav a {
+  position: relative;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav.scrolled a {
+  color: #fff;
+}
+
+nav a:hover {
+  color: #555;
+}
+
+nav.scrolled a:hover {
+  color: #ddd;
+}
+
+nav a.active {
+  color: #111;
+}
+
+nav.scrolled a.active {
+  color: #fff;
+}
+
+nav .nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: #333;
+  transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0.0, 0.2, 1), background 0.3s;
+  border-radius: 2px;
+}
+
+nav.scrolled .nav-indicator {
+  background: #fff;
+}
+
+section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+h2 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.project {
+  margin-bottom: 2rem;
+}
+
+.project h3 {
+  margin: 0.5rem 0;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.gallery figure {
+  margin: 0;
+  text-align: center;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+.gallery figure:last-child {
+  grid-column: 1 / -1;
+}
+
+.gallery figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+a.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #000;
+  border: 2px solid transparent;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background 0.2s;
+}
+
+a.button:hover {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
