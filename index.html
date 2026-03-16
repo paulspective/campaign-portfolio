@@ -46,26 +46,36 @@
   </section>
 
   <section id="projects">
-    <h2>Sample Campaigns</h2>
+    <h2>Campaigns That Deliver Results</h2>
+    <div class="projects-grid">
 
-    <div class="project">
-      <h3>Holiday Promo Campaign</h3>
-      <p><strong>Challenge:</strong> Boost seasonal sales during a competitive holiday period.</p>
-      <p><strong>Solution:</strong> Segmented audience targeting with personalized offers delivered via a 3-email
-        sequence.</p>
-      <p><strong>Impact:</strong> <strong>42% open rate</strong>, <strong>18% CTR</strong>, <strong>12% conversion
-          uplift</strong> compared to previous year.</p>
+      <div class="project-card">
+        <img src="images/holiday-email.png" alt="Holiday promo email screenshot">
+        <div class="project-content">
+          <h3>Holiday Promo Campaign</h3>
+          <p><strong>Challenge:</strong> Boost seasonal sales during a competitive holiday period.</p>
+          <p><strong>Solution:</strong> Segmented audience targeting with personalized offers delivered via a 3-email
+            sequence.</p>
+          <p><strong>Impact:</strong> <strong>42% open rate</strong>, <strong>18% CTR</strong>, <strong>12% conversion
+              uplift</strong> compared to previous year.</p>
+          <p class="takeaway">Personalization drove higher conversions by 12%.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="images/onboarding-email.png" alt="Onboarding series email screenshot">
+        <div class="project-content">
+          <h3>Onboarding Series</h3>
+          <p><strong>Challenge:</strong> Increase activation and engagement of new users post-signup.</p>
+          <p><strong>Solution:</strong> Automated 5-step welcome series with tailored product tips and personalized
+            follow-ups.</p>
+          <p><strong>Impact:</strong> <strong>60% engagement rate</strong>, <strong>25% increase in trial-to-paid
+              conversions</strong>.</p>
+          <p class="takeaway">Automation improved trial-to-paid conversions by 25%.</p>
+        </div>
+      </div>
+
     </div>
-
-    <div class="project">
-      <h3>Onboarding Series</h3>
-      <p><strong>Challenge:</strong> Increase activation and engagement of new users post-signup.</p>
-      <p><strong>Solution:</strong> Automated 5-step welcome series with tailored product tips and personalized
-        follow-ups.</p>
-      <p><strong>Impact:</strong> <strong>60% engagement rate</strong>, <strong>25% increase in trial-to-paid
-          conversions</strong>.</p>
-    </div>
-
   </section>
 
   <section id="skills">
@@ -95,15 +105,31 @@
   </section>
 
   <section id="contact">
-    <h2>Work With Me</h2>
-    <p>Let's collaborate on your next campaign.</p>
-    <p>Email: <a href="mailto:paul@example.com">paul@example.com</a></p>
-  </section>
+    <h2>Start Your Next Campaign</h2>
+    <p>Smart campaigns that drive engagement and measurable results.</p>
 
-  <footer>
-    <p>© 2026 Paul | Email Marketing & Automation</p>
-  </footer>
+    <!-- Contact Form -->
+    <form action="https://formspree.io/f/mnjgglow" method="POST" class="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
 
-  <script src="script.js"></script>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" class="button">Send Message</button>
+    </form>
+
+    <div id="form-success" style="display:none; align-items: center; text-align: center; margin-top:1rem; color:green;">
+      Thanks! Your message has been sent.
+    </div>
+
+    <footer>
+      <p>© 2026 Paul | Email Marketing & Automation</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

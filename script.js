@@ -3,6 +3,23 @@
   const indicator = navbar.querySelector('.nav-indicator');
   const links = Array.from(navbar.querySelectorAll('a[href^="#"]'));
   const menuToggle = document.querySelector('.menu-toggle');
+  const form = document.querySelector('.contact-form');
+  const success = document.getElementById('form-success');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.reset();
+      success.style.display = 'block';
+    }
+  });
+
   const sections = links
     .map(link => document.querySelector(link.getAttribute('href')))
     .filter(Boolean);
