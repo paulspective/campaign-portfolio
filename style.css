@@ -149,6 +149,10 @@ nav.scrolled .nav-indicator {
     display: block;
   }
 
+  nav {
+    padding: 0.75rem;
+  }
+
   .nav-indicator {
     display: none;
   }
