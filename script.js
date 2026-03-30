@@ -5,6 +5,7 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const form = document.querySelector('.contact-form');
   const success = document.getElementById('form-success');
+  const overlay = document.querySelector('.overlay');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -26,10 +27,28 @@
 
   const header = document.querySelector('header');
 
+  function toggleOverlay(show) {
+    if (show) {
+      overlay.style.visibility = 'visible';
+      overlay.style.opacity = '1';
+      overlay.style.backdropFilter = 'blur(8px)';
+      overlay.style.webkitBackdropFilter = 'blur(8px)';
+    } else {
+      overlay.style.opacity = '0';
+      overlay.style.backdropFilter = 'blur(0px)';
+      overlay.style.webkitBackdropFilter = 'blur(0px)';
+      setTimeout(() => {
+        overlay.style.visibility = 'hidden';
+      }, 300);
+    }
+  }
+
   function toggleMobileMenu() {
     const isOpen = navbar.classList.toggle('open');
     menuToggle.classList.toggle('open', isOpen);
     menuToggle.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) toggleOverlay(true);
+    else toggleOverlay(false);
     const current = links.find(a => a.classList.contains('active'));
     if (current) moveIndicator(current);
   }
