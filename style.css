@@ -331,9 +331,9 @@ a.button {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.75rem 1.5rem;
-  background: #000;
+  background: #fff;
   border: 2px solid transparent;
-  color: #fff;
+  color: #000;
   text-decoration: none;
   border-radius: 50px;
   transition: transform 0.2s;
