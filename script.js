@@ -31,15 +31,15 @@
     if (show) {
       overlay.style.visibility = 'visible';
       overlay.style.opacity = '1';
-      overlay.style.backdropFilter = 'blur(8px)';
-      overlay.style.webkitBackdropFilter = 'blur(8px)';
+      overlay.style.backdropFilter = 'blur(20px)';
+      overlay.style.webkitBackdropFilter = 'blur(20px)';
     } else {
       overlay.style.opacity = '0';
       overlay.style.backdropFilter = 'blur(0px)';
       overlay.style.webkitBackdropFilter = 'blur(0px)';
       setTimeout(() => {
         overlay.style.visibility = 'hidden';
-      }, 300);
+      }, 500);
     }
   }
 
